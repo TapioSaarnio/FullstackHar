@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#header {
+  
+  display: 'flex';
+  flex-direction: row;
+  background-color:black;
+  justify-content: center;
+  height: 37;
+
+}
+
+#niemisPanimoHeader {
+
+  font-weight: 900;
+  font-family: 'Bungee';
+  font-size: 80px;
+  color: #93ea1f;
+  align-self: 'center';
+
+}
+
+#niemisPanimoCrew {
+
+  width: 700px;
+  height: 225px;
+}
+
+#niemisPanimoIg {
+
+  font-weight: 'bold';
+  color: #93ea1f;
+
+  
+}
+
+#streetCred {
+
+  color: #93ea1f;
+
+}
+
+
+#gallery {
+
+  border-right: 50px solid black;
+  border-left: 50px solid black;
+
+  border-image-source: url('./imgs/codeSmall.png');
+  border-image-repeat: round;
+  border-image-slice: 27;
+
+  display:flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right: 0;
+
+  align-items: center;
+
+
+}
+
+.frontPageChoices {
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.frontPageChoices:hover .frontPageImgs{
+
+  opacity: 0.4;
+
+}
+
+.frontPageChoicesText {
+
+  font-family: 'Bungee';
+  color:#93ea1f;
+  font-size: x-large;
+
+}
+
+
+
+#App {
+  display:flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right: 0;
+  overflow: auto;
+  border: 50px solid black;
+  border-image-source: url('./imgs/codeSmall.png');
+  border-image-repeat: round;
+  border-image-slice: 27;
+  
+}
+
+@media only screen and (max-width: 900px) {
+
+  #App {
+    display:flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right: 0;
+    overflow: auto;
+    border: 20px solid black;
+    border-image-source: url('./imgs/codeSmall.png');
+    border-image-repeat: round;
+    border-image-slice: 27;
+    
+  }
+
+  #header {
+    background-color: brown;
+  }
+
+  .frontPageImgs {
+
+    width: 90px;
+    height: 90px;
+
+  }
+
+  #niemisPanimoHeader {
+    
+    font-family: 'Bungee';
+    font-size: 30px;
+    color: #93ea1f;
+    align-self: 'center';
+  
+  }
+
+  #streetCred {
+
+    color: #93ea1f;
+    font-size: 12px;
+  } 
+
+  #niemisPanimoIg {
+
+    margin-left: 5;
+    font-weight: 'bold';
+    color: #93ea1f;
+    font-size: 12px;
+
+  }
+
+  .frontPageChoicesText {
+
+    font-family: 'Bungee';
+    color:#93ea1f;
+    font-size: medium;
+  
+  }
+
+
+
+  
+}
+
+
