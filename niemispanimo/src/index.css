@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
-
-
+@import "~react-image-gallery/styles/css/image-gallery.css";
+@import "react-responsive-carousel/lib/styles/carousel.min.css";
+@import "react-alice-carousel/lib/alice-carousel.css";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,6 +14,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.sliderimg{
+
+  height: 500px;
+  object-fit: cover
 }
 
 #header {
@@ -55,6 +61,12 @@ code {
 
 }
 
+#galleryStreetCred {
+
+  align-self: center;
+}
+
+
 
 #gallery {
 
@@ -66,16 +78,32 @@ code {
   border-image-slice: 27;
 
   display:flex;
+  flex: 1;
   flex-direction: column;
-  position: fixed;
+  overflow: auto;
   top: 0;
   left: 0;
   bottom:0;
   right: 0;
 
   align-items: center;
+  justify-content: center;
 
 
+}
+
+
+
+.sliderimg {
+
+  justify-self: center;
+}
+
+.carousel-root {
+  
+  margin: 20px;
+  width: 500px;
+  height: auto;
 }
 
 .frontPageChoices {
@@ -101,7 +129,6 @@ code {
 }
 
 
-
 #App {
   display:flex;
   flex-direction: column;
@@ -119,6 +146,47 @@ code {
 }
 
 @media only screen and (max-width: 900px) {
+
+  .carousel-root {
+  
+    margin: 20px;
+    width: 250px;
+    height: auto;
+  }
+
+
+  #niemisPanimoCrew {
+
+    width: 300px;
+    height: 96px;
+  }
+
+  #gallery {
+
+    height: 100vh;
+
+    border-right: 25px solid black;
+    border-left: 25px solid black;
+  
+    border-image-source: url('./imgs/codeSmall.png');
+    border-image-repeat: round;
+    border-image-slice: 27;
+  
+    display:flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    bottom:0;
+    right: 0;
+  
+    align-items: center;
+    justify-content: center;
+  
+  
+  }
+  
 
   #App {
     display:flex;
