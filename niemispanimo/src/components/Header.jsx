@@ -21,8 +21,6 @@ const Header = () => {
 
     return(
         <div style={styles.header}>
-            <Image style={styles.codeImg} src={code}/>
-        
         </div>
     )
 }

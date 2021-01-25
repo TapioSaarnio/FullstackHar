@@ -93,9 +93,9 @@ const Gallery = () => {
     ]
 
     return(
-        <div id='gallery'>
+        <div className='content'>
             <Link to='/'>
-            <img src={niemisPanimoCrew} alt='Niemispanimo Crew' id='niemisPanimoCrew'/>
+            <img src={niemisPanimoCrew} alt='Niemispanimo Crew' className='niemisPanimoCrew'/>
             </Link>
             <Carousel width="800">
             

@@ -7,6 +7,10 @@ import MiddleContainer from './components/MiddleContainer'
 import BottomContainer from './components/BottomContainer'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Gallery from './components/Gallery';
+import Products from './components/Products';
+
+
+
 function App() {
   
   return (
@@ -15,6 +19,9 @@ function App() {
     <Switch>
       <Route path='/Galleria'>
       <Gallery/>
+      </Route>
+      <Route path='/Tuotteet'>
+        <Products/>
       </Route>
       <Route path='/'>
         <FrontPage/>

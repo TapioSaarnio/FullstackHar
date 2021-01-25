@@ -3,7 +3,7 @@ const baseUrl = 'http://localhost:3001/products'
 
 
 
-const getAllProducts = async() => {
+export const getAllProducts = async() => {
 
     const response = await axios.get(baseUrl)
 
@@ -13,3 +13,5 @@ const getAllProducts = async() => {
 
 
 }
+
+export default getAllProducts

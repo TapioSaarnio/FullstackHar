@@ -41,7 +41,7 @@ code {
 
 }
 
-#niemisPanimoCrew {
+.niemisPanimoCrew {
 
   width: 700px;
   height: 225px;
@@ -68,7 +68,7 @@ code {
 
 
 
-#gallery {
+.content {
 
   border-right: 50px solid black;
   border-left: 50px solid black;
@@ -91,7 +91,6 @@ code {
 
 
 }
-
 
 
 .sliderimg {
@@ -155,13 +154,13 @@ code {
   }
 
 
-  #niemisPanimoCrew {
+  .niemisPanimoCrew {
 
     width: 300px;
     height: 96px;
   }
 
-  #gallery {
+  .content {        
 
     height: 100vh;
 
