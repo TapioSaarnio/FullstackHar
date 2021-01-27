@@ -7,6 +7,7 @@ const path = require('path')
 const {Storage} = require('@google-cloud/storage')
 const {uploadImage} = require('./helpers/helpers')
 const Product = require('./models/product')
+const cors = require('cors')
 
 const app = express()
 
@@ -18,18 +19,24 @@ const multerMid = multer({
   },
 })
 
+app.use(cors())
 app.disable('x-powered-by')
 app.use(multerMid.single('file'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 
-app.get('./Tuotteet', async (req, res, next) => {
+app.get('/Tuotteet', async (req, res, next) => {
+
+  console.log('tuotteet')
 
   const products = await Product.find({})
 
+  console.log('products')
+  console.log(products)
+
   res.status(200).json({
-    data: products
+    products
   }
   )
 
@@ -40,8 +47,6 @@ app.get('./Tuotteet', async (req, res, next) => {
 
 
   app.post('/beerUploads', async  (req, res, next) => {
-
-    console.log('beeruploads')
 
 
 
@@ -60,19 +65,10 @@ console.log('saikobuckes')
     }
     */
 
-    console.log('toimii viel')
-
-
     try {
 
       const pictureFile = req.file
-      console.log(pictureFile)
       const imageUrl = await uploadImage(pictureFile)
-      console.log('imageurl')
-      console.log(imageUrl)
-
-      console.log('req')
-      console.log(req)
 
       const product = new Product({
       
@@ -81,12 +77,9 @@ console.log('saikobuckes')
         type: req.body.type,
         image: imageUrl
       })
-
-      console.log(product)
       
       const savedProduct = await product.save()
-      console.log('savedproduct')
-      console.log(savedProduct)
+
 
       res
       .status(200)
@@ -94,10 +87,6 @@ console.log('saikobuckes')
         message: "Upload was successful",
         data: savedProduct
       })
-
-      
-      
-
 
       /*
       product.save().then(savedProduct => {
