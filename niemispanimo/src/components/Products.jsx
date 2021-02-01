@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
+import {FaBeer} from 'react-icons/fa'
 
 import niemisPanimoCrew from '../imgs/niemisPanimoCrew.png'
 
@@ -29,24 +30,27 @@ const Products =() => {
         
 
         <div className='content'>
+            <div>
             <Link to='/'>
             <img src={niemisPanimoCrew} alt='Niemispanimo Crew' className='niemisPanimoCrew'/>
             </Link>
+            </div>
             {products.products.map(p =>
-            <div className = 'cardDiv'>
                 <Card>
-             <Card.Img variant='top' src={p.image} className='cardPicture'/>
+                        <Card.Img  src={p.image} className='cardPicture'/>
+
              <Card.Body>
-                 <div className='cardSpecs'>
+
+                 <div className='description'>
                  <Card.Text>{p.description}</Card.Text>
                  </div>
-                 <Button variant='primary'></Button>
+              
+                 <Button>Lue arvosteluja</Button>
+                 <Button>Jätä arvostelu</Button>
 
-                 
-                 
+
              </Card.Body>
              </Card>
-            </div>
             )}
             
         </div>

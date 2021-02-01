@@ -8,6 +8,11 @@ const {Storage} = require('@google-cloud/storage')
 const {uploadImage} = require('./helpers/helpers')
 const Product = require('./models/product')
 const cors = require('cors')
+const User = require('./models/user')
+const bcrypt = require('bcrypt')
+const usersRouter = require('./controllers/users')
+const productsRouter = require('./controllers/products')
+
 
 const app = express()
 
@@ -24,8 +29,11 @@ app.disable('x-powered-by')
 app.use(multerMid.single('file'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
+app.use('/api/users', usersRouter)
+app.use('/api/products', productsRouter)
 
 
+/*
 app.get('/Tuotteet', async (req, res, next) => {
 
   console.log('tuotteet')
@@ -44,13 +52,11 @@ app.get('/Tuotteet', async (req, res, next) => {
 })
 
 
-
-
   app.post('/beerUploads', async  (req, res, next) => {
 
 
 
-    /*
+    
     if (req.name === undefined || req.description === undefined || req.type === undefined || req.file === undefined) {
       console.log('if lohko')
       return response.status(400).json({error: 'content missing' })
@@ -63,7 +69,7 @@ console.log('saikobuckes')
 
 })
     }
-    */
+    
 
     try {
 
@@ -88,20 +94,48 @@ console.log('saikobuckes')
         data: savedProduct
       })
 
-      /*
+      
       product.save().then(savedProduct => {
         res.json(savedProduct)
       })
-      */
+      
 
     } catch (error) {
       next(error)
     }
 
+  })
+
+
+  app.post('/users', async (request, response, next) => {
+
+    try{
 
     
+    const body = request.body
 
-  })
+    console.log('body')
+    console.log(body)
+    
+    const saltRounds = 10
+    const passwordHash = await bcrypt.hash(body.password, saltRounds)
+
+    const user = new User({
+      username: body.username,
+      passwordHash
+    })
+
+    const savedUser = await user.save()
+
+    response.json(savedUser)
+
+  } catch (error) {
+    next(error)
+  }
+
+
+})
+*/
 
   app.use((err, req, res, next) => {
     res.status(500).json({
