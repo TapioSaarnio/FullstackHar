@@ -5,13 +5,28 @@ import {FaBeer} from 'react-icons/fa'
 
 import niemisPanimoCrew from '../imgs/niemisPanimoCrew.png'
 
-import getAllProducts from '../services/products.js'
+import getAllProducts from '../services/products'
+import {login} from '../services/users'
+import LoginModal from './LoginModal'
 
 
 const Products =() => {
 
     
     const [products, setProducts] = useState(null)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [user, setUser] = useState(null)
+    const [loginModalOpen, setLoginModalOpen] = useState(false)
+    const [signInModalOpen, setSignInModalOpen] = useState(false)
+    const [errorMessage, setErrorMessage] = useState(null)
+
+    const openLoginModal = () => {
+        console.log('openLoginModal')
+        setLoginModalOpen(true)
+    }
+    const closeLoginModal = () => setLoginModalOpen(false)
+    const openSignInModal = () => setSignInModalOpen(true)
 
     useEffect(() => {
         console.log('useeffect')
@@ -19,6 +34,44 @@ const Products =() => {
             setProducts(p)
         })
     }, [])
+
+    const handleLogin = async (event) => {
+        event.preventDefault()
+
+        try {
+            const user = await login({username, password})
+
+            setUser(user)
+            setUsername('')
+            setPassword('')
+
+        } catch (exception) {
+
+            setErrorMessage('Väärät tunnukset')
+            setTimeout(() => {
+                setErrorMessage(null)
+            }, 5000)
+
+        }
+    }
+
+
+    const loginAndSignIn = () => (
+
+
+            <div id='login'>
+                <Button id='loginButton' onClick = {() => openLoginModal()}>Kirjaudu sisään</Button>
+                <Button id='signInButton'>Luo tunnukset</Button>
+            </div>
+
+    )
+
+    const loggedInForm = () => (
+
+        <div>
+            <p>Olet kirjautunut sisään käyttäjänimellä '{username}'</p>
+        </div>
+    )
 
     
     
@@ -35,7 +88,9 @@ const Products =() => {
             <img src={niemisPanimoCrew} alt='Niemispanimo Crew' className='niemisPanimoCrew'/>
             </Link>
             </div>
-            {products.products.map(p =>
+            <LoginModal loginModalOpen={loginModalOpen} onClose={closeLoginModal} error={errorMessage}/>
+            {user === null ? loginAndSignIn() : loggedInForm()}
+            {products.map(p =>
                 <Card>
                         <Card.Img  src={p.image} className='cardPicture'/>
 

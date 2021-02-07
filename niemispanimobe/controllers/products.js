@@ -1,6 +1,6 @@
-const productsRouter = Router()
+const productsRouter = require('express').Router()
 const Product = require('../models/product')
-
+const {uploadImage} = require('../helpers/helpers')
 
 productsRouter.get('/', (request, response) => {
     Product.find({}).then(ps => {

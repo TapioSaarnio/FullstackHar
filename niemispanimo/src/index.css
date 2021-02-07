@@ -11,6 +11,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+*, *:before, *:after {
+  box-sizing: content-box !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -116,9 +121,6 @@ code {
 
 }
 
-.content Button {
-
-}
 .content {
 
   border-right: 50px solid black;
@@ -177,6 +179,31 @@ code {
 
 }
 
+#passWordField {
+  margin-left: 44px;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px,
+  
+}
+
+#loginButton {
+  align-self: center;
+}
+
+#userNameDiv {
+  padding: 2px;
+}
+
+#passwordDiv {
+  padding: 2px;
+}
+
 
 #App {
   display:flex;
@@ -192,6 +219,52 @@ code {
   border-image-repeat: round;
   border-image-slice: 27;
   
+}
+
+
+#formDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#username {
+  padding: 5px;
+}
+
+#password {
+
+  padding: 5px;
+
+}
+
+#login {
+  display: flex;
+  flex-direction: row;
+}
+
+#loginButton {
+  margin: 10px;
+}
+
+#loginButtonModalDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+  
+}
+
+#loginButtonModal {
+  align-self: center;
+}
+
+#signInButton {
+  margin: 10px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -220,10 +293,9 @@ code {
   .content {        
 
 
-
+    padding: 0;
     margin: 0;
-  padding: 0;
-  overflow-y: scroll;
+
 
     border-right: 25px solid black;
     border-left: 25px solid black;
@@ -322,7 +394,7 @@ code {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 160px;
+    max-width: 160px !important;
 
   }
 
