@@ -1,26 +1,17 @@
 import React from 'react'
-import { Modal, Header, Segment } from 'semantic-ui-react';
+import {Modal, Header, Segment } from 'semantic-ui-react';
 import {Button} from 'react-bootstrap'
 import {Formik, Form, Field, ErrorMessage } from 'formik'
 import {TextField} from './TextField'
 
-
-
-const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
-
-
-
-    
-    console.log(loginModalOpen)
-    console.log('loginModalOpen')
-    
+const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
 
     return(
-    <Modal open={loginModalOpen} onClose={onClose} centered={false} closeIcon>
-        <Header textAlign='center'>Kirjaudu Sisään</Header>
-        <Modal.Content>
-        {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
-        <Formik 
+        <Modal open={signInModalOpen} onClose={onClose} centered={true} closeIcon>
+            <Header textAlign='center'>Luo Tunnukset</Header>
+            <Modal.Content>
+                {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
+                <Formik 
         initialValues={{username:'', password:''}}
         onSubmit={onSubmit}
         validate={values => {
@@ -55,8 +46,8 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
                     component={TextField}
                     />
                     </div>
-                    <div id='loginButtonModalDiv'>
-                    <Button id='loginButtonModal' type='submit'>Inee</Button>
+                    <div id='signInButtonModalDiv'>
+                    <Button id='signInButtonModal' type='submit'>Inee</Button>
                     </div>
                 </Form>
                 </div>
@@ -64,12 +55,9 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
             }}
 
         </Formik>
-        </Modal.Content>
-
-    </Modal>
+            </Modal.Content>
+        </Modal>
     )
-    
 }
 
-export default LoginModal
-
+export default SignInModal

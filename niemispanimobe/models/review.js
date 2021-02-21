@@ -2,17 +2,22 @@ const mongoose = require('mongoose')
 
 const reviewSchema = mongoose.Schema({
 
-    content: {
+    description: {
         type: String,
         required: true,
-        minlength: 20
+        minlength: 2
     },
-    date: Date,
+    verdict: Number,
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    product: {
 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product'
+
+    }
 })
 
 const Review = mongoose.model('Review', reviewSchema)

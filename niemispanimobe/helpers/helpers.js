@@ -1,7 +1,6 @@
 const util = require('util')
 const gc = require('../config/')
 const bucket = gc.bucket('npanbucket') // should be your bucket name
-const {Storage} = require('@google-cloud/storage')
 const { format } = util
 
 //gc.getBuckets().then(x => console.log(x))

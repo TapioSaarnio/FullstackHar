@@ -4,9 +4,12 @@ const app = express()
 const cors = require('cors')
 const usersRouter = require('./controllers/users')
 const productsRouter = require('./controllers/products')
+const loginRouter = require('./controllers/login')
+const reviewsRouter = require('./controllers/reviews')
+
 const multer = require('multer')
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
+
 
 const multerMid = multer({
     storage: multer.memoryStorage(),
@@ -31,7 +34,9 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
 app.use(multerMid.single('file'))
 
   app.use('/api/users', usersRouter)
+  app.use('/api/login', loginRouter)
   app.use('/api/products', productsRouter)
+  app.use('/api/reviews', reviewsRouter)
 
 
   module.exports = app

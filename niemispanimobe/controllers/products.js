@@ -35,6 +35,7 @@ productsRouter.post('/', async (req, res, next) => {
           description: req.body.description,
           type: req.body.type,
           image: imageUrl
+          
         })
         
         const savedProduct = await product.save()

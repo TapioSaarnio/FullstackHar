@@ -13,7 +13,7 @@ body {
 
 
 *, *:before, *:after {
-  box-sizing: content-box !important;
+  box-sizing: content-box;
 }
 
 code {
@@ -102,7 +102,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
 
 }
 
@@ -267,6 +267,55 @@ code {
   margin: 10px;
 }
 
+#leaveReviewDiv {
+
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#beerRating {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+input[type="radio"] {
+  display: none;
+}
+
+#leaveReviewDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+#leaveReviewButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#leaveReviewButton {
+  align-self: center;
+}
+ #ratingErrorMessage {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }
+
 @media only screen and (max-width: 900px) {
 
   .carousel-root {
@@ -387,13 +436,15 @@ code {
 
   .card {
 
-    padding: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
     margin: 10px;
     background-color: #D3D3D3 ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     max-width: 160px !important;
 
   }
