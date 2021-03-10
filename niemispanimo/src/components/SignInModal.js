@@ -35,6 +35,7 @@ const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
                     label='Käyttäjänimi'
                     placeholder='Käyttäjänimi'
                     name='username'
+                    showText={true}
                     component={TextField}
                     />
                     </div>
@@ -43,6 +44,7 @@ const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
                     label='Salasana'
                     placeholder='Salasana'
                     name='password'
+                    showText={false}
                     component={TextField}
                     />
                     </div>

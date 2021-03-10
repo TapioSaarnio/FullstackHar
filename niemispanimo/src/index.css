@@ -92,6 +92,8 @@ code {
 .description {
   display: flex;
   max-width: 540px;
+  justify-content: center;
+  margin: 7px;
 }
 
 .card {
@@ -113,11 +115,11 @@ code {
   align-content: center;
 }
 
-.reviewButtons {
-  
+#reviewButtons {
+
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -267,6 +269,12 @@ code {
   margin: 10px;
 }
 
+#signInButtonModalDiv {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
 #leaveReviewDiv {
 
   display:flex;
@@ -310,11 +318,68 @@ input[type="radio"] {
 #leaveReviewButton {
   align-self: center;
 }
+
+#loggedIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
  #ratingErrorMessage {
    display: flex;
    flex-direction: row;
    justify-content: center;
  }
+
+ #reviews {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+ }
+
+ #reviewsTop {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   background-color: #93e828;
+   padding: 5px;
+ }
+
+ #readReviewsButton {
+
+  margin: 10px
+ }
+
+ #reviewsContent {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+ }
+
+ #reviewVerdict {
+
+  margin-left: 10px;
+  
+ } 
+
+ #reviewButtons {
+
+  padding: 10px;
+  
+}
+
+#review {
+
+  margin-bottom: 10px;
+  background-color: #D3D3D3;
+}
+
+
 
 @media only screen and (max-width: 900px) {
 
@@ -322,8 +387,23 @@ input[type="radio"] {
   
     margin: 20px;
     width: 250px;
-    height: auto;
+    height: 100%;
   }
+
+  #root {
+
+    height: 100%;
+
+    
+  }
+
+  #container {
+
+    height: 100%;
+
+    
+  }
+  
 
 
   .niemisPanimoCrew {
@@ -339,11 +419,15 @@ input[type="radio"] {
     
   }
 
+  
+
   .content {        
 
 
     padding: 0;
     margin: 0;
+
+    
 
 
     border-right: 25px solid black;
@@ -352,9 +436,9 @@ input[type="radio"] {
     border-image-source: url('./imgs/codeSmall.png');
     border-image-repeat: round;
     border-image-slice: 27;
-  
-    display:flex;
-    flex: 1;
+
+
+    display: flex;
     flex-direction: column;
     top: 0;
     left: 0;
@@ -377,7 +461,7 @@ input[type="radio"] {
     bottom:0;
     right: 0;
     overflow: auto;
-    border: 20px solid black;
+    border: 20px solid blue;
     border-image-source: url('./imgs/codeSmall.png');
     border-image-repeat: round;
     border-image-slice: 27;
@@ -390,8 +474,8 @@ input[type="radio"] {
 
   .frontPageImgs {
 
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
 
   }
 
@@ -423,7 +507,7 @@ input[type="radio"] {
 
     font-family: 'Bungee';
     color:#93ea1f;
-    font-size: medium;
+    font-size: small;
   
   }
 
@@ -453,20 +537,20 @@ input[type="radio"] {
     margin: 5px;
   }
 
-  .card-body {
+  .card-text {
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-  }
-
-  .description {
-    overflow:hidden;
-    display: inline-block;
     max-width: 150px;
-    
+    word-wrap: break-word
   }
+
+
+  .descriptions {
+  
+  display: flex;
+  max-width: 100px;
+  justify-content: center;
+  margin: 7px;
+}
 
 
 

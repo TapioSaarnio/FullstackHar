@@ -19,6 +19,7 @@ import Same from '../imgs/Same.jpeg'
 import SeppaKuijo from '../imgs/SeppaKuijo.jpeg'
 import Veke from '../imgs/Veke.jpeg'
 import WoodenKeg from '../imgs/WoodenKeg.jpeg'
+import panimoXliike from '../imgs/panimoXliike.jpeg'
 import { Link } from 'react-router-dom'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -105,6 +106,13 @@ const Gallery = () => {
                 
 
                     </Carousel>
+
+
+
+            <img src={panimoXliike}/>
+
+
+
 
 
         </div>

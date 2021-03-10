@@ -16,7 +16,7 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
     
 
     return(
-    <Modal open={loginModalOpen} onClose={onClose} centered={false} closeIcon>
+    <Modal open={loginModalOpen} onClose={onClose} centered={true} closeIcon>
         <Header textAlign='center'>Kirjaudu Sisään</Header>
         <Modal.Content>
         {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
@@ -44,6 +44,7 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
                     label='Käyttäjänimi'
                     placeholder='Käyttäjänimi'
                     name='username'
+                    showText = {true}
                     component={TextField}
                     />
                     </div>
@@ -52,6 +53,7 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
                     label='Salasana'
                     placeholder='Salasana'
                     name='password'
+                    showText = {false}
                     component={TextField}
                     />
                     </div>

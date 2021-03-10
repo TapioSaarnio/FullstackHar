@@ -3,7 +3,7 @@ const Product = require('../models/product')
 const {uploadImage} = require('../helpers/helpers')
 
 productsRouter.get('/', (request, response) => {
-    Product.find({}).then(ps => {
+    Product.find({}).populate({path: 'reviews', populate:{path: 'user', model: 'User'}}).then(ps => {
         response.json(ps.map(p => p.toJSON()))
     })
 })

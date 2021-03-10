@@ -9,6 +9,8 @@ import { FaBeer } from 'react-icons/fa'
 const LeaveReviewModal = ({onSubmit, leaveReviewModalOpen, onClose, error, product, user}) => {
 
     const [rating, setRating] = useState(null)
+    
+    console.log(product)
 
     return(
         <Modal open={leaveReviewModalOpen} onClose={onClose} centered={true} closeIcon>
@@ -16,12 +18,12 @@ const LeaveReviewModal = ({onSubmit, leaveReviewModalOpen, onClose, error, produ
             <Modal.Content>
                 {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
                 <Formik 
-        initialValues={{description:'', rating: null, product: product, user: user }}
+        initialValues={{description:'', verdict: null, product: product, user: user }}
         onSubmit={onSubmit}
         validate={values => {
             const requiredError = 'Täytä kenttä!';
             const errors = {};
-            if(!values.rating) {
+            if(!values.verdict) {
                 console.log('rating tyhjä')
                 errors.rating = requiredError;
             }
@@ -46,7 +48,7 @@ const LeaveReviewModal = ({onSubmit, leaveReviewModalOpen, onClose, error, produ
                             return(
 
                                         <label>
-                                        <Field type='radio' name='rating' value={ratingValue} onClick={() =>setRating(ratingValue)}/>
+                                        <Field type='radio' name='verdict' value={ratingValue} onClick={() =>setRating(ratingValue)}/>
                                         <FaBeer size={50} color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}/>
                                         </label>
 

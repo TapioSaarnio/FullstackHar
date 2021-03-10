@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
     image: String,
     reviews: [{
         type:  mongoose.Schema.Types.ObjectId,
-        ref: 'Reviews'
+        ref: 'Review'
     }]
 
    })

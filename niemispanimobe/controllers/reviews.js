@@ -10,8 +10,8 @@ reviewsRouter.post('/', async (request, response, next) => {
     try {
 
         const body = request.body
-        console.log('bodyuser')
-        console.log(body.user)
+        console.log('body')
+        console.log(body)
         const user = await User.findOne({username: body.user.username})
         const product = await Product.findOne({name: body.product.name})
 
@@ -19,7 +19,7 @@ reviewsRouter.post('/', async (request, response, next) => {
         const review = new Review({
 
             description: body.description,
-            rating: body.rating,
+            verdict: body.verdict,
             user: user._id,
             product: product._id
 
