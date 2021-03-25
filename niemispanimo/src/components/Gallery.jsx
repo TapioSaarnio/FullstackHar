@@ -9,7 +9,6 @@ import FreshWater from '../imgs/FreshWater.jpeg'
 import Kegs from '../imgs/Kegs.jpeg'
 import Koivuranta from '../imgs/Koivuranta.jpeg'
 import Kuijo from '../imgs/Kuijo.jpeg'
-import kulmanPojat from '../imgs/kulmanPojat.png'
 import Premiere from '../imgs/Premiere.jpeg'
 import Borsta from '../imgs/Borsta.jpeg'
 import Brewing from '../imgs/Brewing.jpeg'
@@ -21,20 +20,14 @@ import Veke from '../imgs/Veke.jpeg'
 import WoodenKeg from '../imgs/WoodenKeg.jpeg'
 import panimoXliike from '../imgs/panimoXliike.jpeg'
 import { Link } from 'react-router-dom'
-
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-
-import {FaInstagram} from 'react-icons/fa'
-
-
 
 const Gallery = () => {
 
     const photos = [
         {
             photo: Arto,
-        
         },
         {
             photo: Beer
@@ -57,11 +50,9 @@ const Gallery = () => {
         },
         {
             photo: Koivuranta
-
         },
         {
             photo: Kuijo
-
         },
         {
             photo: Premiere
@@ -90,32 +81,18 @@ const Gallery = () => {
         {
             photo: WoodenKeg
         },
-
     ]
 
     return(
-        <div className='content'>
-            <Link to='/'>
-            <img src={niemisPanimoCrew} alt='Niemispanimo Crew' className='niemisPanimoCrew'/>
-            </Link>
-            <Carousel width="800">
-            
-                    
+          <div className='content'>
+               <Link to='/'>
+                    <img src={niemisPanimoCrew} alt='Niemispanimo Crew' className='niemisPanimoCrew'/>
+               </Link>
+                <Carousel width="800">
                     {photos.map(pho=> <div><img alt=''src={pho.photo}/></div>)}
-                     
-                
-
-                    </Carousel>
-
-
-
-            <img src={panimoXliike}/>
-
-
-
-
-
-        </div>
+                </Carousel>
+                <img src={panimoXliike}/>
+            </div>
     )
 }
 

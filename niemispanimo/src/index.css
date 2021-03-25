@@ -1,38 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
-@import "~react-image-gallery/styles/css/image-gallery.css";
 @import "react-responsive-carousel/lib/styles/carousel.min.css";
-@import "react-alice-carousel/lib/alice-carousel.css";
+
+
 body {
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 
 *, *:before, *:after {
+
   box-sizing: content-box;
+
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-.sliderimg{
-
-  height: 500px;
-  object-fit: cover
-}
-
-#header {
-  
-  display: 'flex';
-  flex-direction: row;
-  background-color:black;
-  justify-content: center;
-  height: 37;
 
 }
 
@@ -51,6 +42,7 @@ code {
   margin-top: 10px;
   width: 700px;
   height: 225px;
+
 }
 
 #niemisPanimoIg {
@@ -58,7 +50,6 @@ code {
   font-weight: 'bold';
   color: #93ea1f;
 
-  
 }
 
 #streetCred {
@@ -67,33 +58,23 @@ code {
 
 }
 
-#galleryStreetCred {
-
-  align-self: center;
-}
 
 .cardPicture {
 
   width: 540px;
   height: 540px;
   align-self: center;
-}
 
-.cardDiv {
-
-  padding: 20px;
-  margin: 10px;
-  background-color: #D3D3D3 ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .description {
+
   display: flex;
   max-width: 540px;
   justify-content: center;
   margin: 7px;
+  text-align: center;
+
 }
 
 .card {
@@ -108,13 +89,6 @@ code {
 
 }
 
-.cardSpecs {
-
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
 #reviewButtons {
 
   display: flex;
@@ -127,11 +101,9 @@ code {
 
   border-right: 50px solid black;
   border-left: 50px solid black;
-
   border-image-source: url('./imgs/codeSmall.png');
   border-image-repeat: round;
   border-image-slice: 27;
-
   display:flex;
   flex: 1;
   flex-direction: column;
@@ -140,16 +112,9 @@ code {
   left: 0;
   bottom:0;
   right: 0;
-
   align-items: center;
   justify-content: center;
 
-}
-
-
-.sliderimg {
-
-  justify-self: center;
 }
 
 .carousel-root {
@@ -157,6 +122,7 @@ code {
   margin: 20px;
   width: 500px;
   height: auto;
+
 }
 
 .frontPageChoices {
@@ -167,7 +133,7 @@ code {
   
 }
 
-.frontPageChoices:hover .frontPageImgs{
+.frontPageChoices:hover .frontPageImgs {
 
   opacity: 0.4;
 
@@ -182,10 +148,13 @@ code {
 }
 
 #passWordField {
+
   margin-left: 44px;
+
 }
 
 #login {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,20 +163,32 @@ code {
   
 }
 
+#beerNameDiv {
+
+  padding: 8px;
+}
+
 #loginButton {
+
   align-self: center;
+
 }
 
 #userNameDiv {
+
   padding: 2px;
+
 }
 
 #passwordDiv {
+
   padding: 2px;
+
 }
 
 
 #App {
+
   display:flex;
   flex-direction: column;
   position: fixed;
@@ -223,18 +204,10 @@ code {
   
 }
 
-
-#formDiv {
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-}
-
 #username {
+
   padding: 5px;
+
 }
 
 #password {
@@ -244,12 +217,22 @@ code {
 }
 
 #login {
+
   display: flex;
   flex-direction: row;
+
 }
 
 #loginButton {
+
   margin: 10px;
+
+}
+
+#newBeerButton {
+
+  margin: 10px;
+  
 }
 
 #loginButtonModalDiv {
@@ -262,22 +245,47 @@ code {
 }
 
 #loginButtonModal {
+
   align-self: center;
+
 }
 
 #signInButton {
+
   margin: 10px;
+
 }
 
 #signInButtonModalDiv {
+
   display: flex;
   flex-direction:row;
   justify-content: center;
+
 }
+
+#formDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
 
 #leaveReviewDiv {
 
   display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#addBeerDiv {
+
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -289,46 +297,101 @@ code {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
 }
 
 
 input[type="radio"] {
+
   display: none;
+  
 }
 
 #leaveReviewDiv {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 #description {
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 20px;
+
 }
 
-#leaveReviewButtonDiv {
+#beerNameDiv {
+
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 7px;
+}
+
+#addBeerDescription {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 7px;
+
+}
+
+#addBeerFileDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 7px;
+
+
+}
+
+#addBeerButtonDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 7px;
+} 
+
+#addBeerButton {
+  align-self: center;
+  margin: 7px;
+}
+
+#leaveReviewButtonDiv {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
 }
 
 #leaveReviewButton {
+
   align-self: center;
+
 }
 
 #loggedIn {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
  #ratingErrorMessage {
+
    display: flex;
    flex-direction: row;
    justify-content: center;
+
  }
 
  #reviews {
@@ -340,24 +403,29 @@ input[type="radio"] {
  }
 
  #reviewsTop {
+
    display: flex;
    flex-direction: row;
    justify-content: center;
    background-color: #93e828;
    padding: 5px;
+
  }
 
  #readReviewsButton {
 
   margin: 10px
+
  }
 
  #reviewsContent {
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  word-wrap: break-word;
+  padding: 20px;
+  text-align: center;
 
  }
 
@@ -377,9 +445,8 @@ input[type="radio"] {
 
   margin-bottom: 10px;
   background-color: #D3D3D3;
+
 }
-
-
 
 @media only screen and (max-width: 900px) {
 
@@ -388,12 +455,12 @@ input[type="radio"] {
     margin: 20px;
     width: 250px;
     height: 100%;
+
   }
 
   #root {
 
     height: 100%;
-
     
   }
 
@@ -401,15 +468,13 @@ input[type="radio"] {
 
     height: 100%;
 
-    
   }
   
-
-
   .niemisPanimoCrew {
 
     width: 300px;
     height: 96px;
+
   }
 
   .cardPicture {
@@ -419,40 +484,29 @@ input[type="radio"] {
     
   }
 
-  
-
   .content {        
-
 
     padding: 0;
     margin: 0;
-
-    
-
-
     border-right: 25px solid black;
     border-left: 25px solid black;
-  
     border-image-source: url('./imgs/codeSmall.png');
     border-image-repeat: round;
     border-image-slice: 27;
-
-
     display: flex;
     flex-direction: column;
     top: 0;
     left: 0;
     bottom:0;
     right: 0;
-  
     align-items: center;
     justify-content: center;
-  
-  
+
   }
   
 
   #App {
+
     display:flex;
     flex-direction: column;
     position: fixed;
@@ -466,10 +520,6 @@ input[type="radio"] {
     border-image-repeat: round;
     border-image-slice: 27;
     
-  }
-
-  #header {
-    background-color: brown;
   }
 
   .frontPageImgs {
@@ -492,6 +542,7 @@ input[type="radio"] {
 
     color: #93ea1f;
     font-size: 12px;
+
   } 
 
   #niemisPanimoIg {
@@ -516,6 +567,7 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     align-content: center;
+
   }
 
   .card {
@@ -528,33 +580,33 @@ input[type="radio"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     max-width: 160px !important;
 
   }
 
   .card Button {
+
     margin: 5px;
+
   }
 
   .card-text {
 
     max-width: 150px;
-    word-wrap: break-word
+    word-wrap: break-word;
+
   }
 
 
   .descriptions {
   
-  display: flex;
-  max-width: 100px;
-  justify-content: center;
-  margin: 7px;
-}
+    display: flex;
+    max-width: 100px;
+    justify-content: center;
+    margin: 7px;
 
-
-
-  
+  }
+ 
 }
 
 

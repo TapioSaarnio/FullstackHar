@@ -16,28 +16,17 @@ const TopContainer = () => {
             
 
         },
-        niemisPanimo: {
-
-            fontWeight: 900,
-            fontSize: 80,
-            color: '#93ea1f',
-            alignSelf: 'center',
-
-        }
     }
 
-
     return(
-        <div style={styles.topContainer}>
 
+        <div style={styles.topContainer}>
             <h1 id='niemisPanimoHeader'>
                 NIEMISPANIMO
             </h1>
-
-            
         </div>
+        
     )
-
 }
 
 export default TopContainer

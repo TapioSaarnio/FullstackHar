@@ -20,30 +20,28 @@ const MiddleContainer = () => {
         }
     }
 
-   return (
-
-    <div style={styles.middleContainer}>
-        <div class='frontPageChoices'>
-        <Link to='./Galleria'>
-        <img class='frontPageImgs' alt='Kulman Pojat' src={KulmanPojat}/>
-        </Link>
-        <p class='frontPageChoicesText'>Kuvagalleria</p>
-        </div>
-        <div class='frontPageChoices'>
-        <Link to='./Tuotteet'>
-        <img class='frontPageImgs' alt='Passion' src={Passion}/>
-        </Link>
-        <p class='frontPageChoicesText'>Tuotteet</p>
-        </div>
-        <div class='frontPageChoices'>
-        <a href='https://www.youtube.com/watch?v=YbpaPkZojxA&t=1142s&ab_channel=Kulmanpojat'>
-        <img class='frontPageImgs' alt='Lifetime Deal' src={LifetimeDeal}/>
-        </a>
-        <p class='frontPageChoicesText'>Videot</p>
-        </div>
-    </div>
-   ) 
+    return (
+            <div style={styles.middleContainer}>
+                <div class='frontPageChoices'>
+                    <Link to='./Galleria'>
+                        <img class='frontPageImgs' alt='Kulman Pojat' src={KulmanPojat}/>
+                    </Link>
+                    <p class='frontPageChoicesText'>Kuvagalleria</p>
+                </div>
+                <div class='frontPageChoices'>
+                    <Link to='./Tuotteet'>
+                        <img class='frontPageImgs' alt='Passion' src={Passion}/>
+                    </Link>
+                    <p class='frontPageChoicesText'>Tuotteet</p>
+                </div>
+                <div class='frontPageChoices'>
+                    <a href='https://www.youtube.com/watch?v=YbpaPkZojxA&t=1142s&ab_channel=Kulmanpojat'>
+                        <img class='frontPageImgs' alt='Lifetime Deal' src={LifetimeDeal}/>
+                    </a>
+                    <p class='frontPageChoicesText'>Videot</p>
+                </div>
+            </div>
+    ) 
 }
-
 
 export default MiddleContainer

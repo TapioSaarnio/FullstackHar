@@ -7,27 +7,15 @@ const BottomContainer = () => {
     const styles = {
 
         bottomContainer: {
+
             display: 'flex',
             flex: 1,
             flexDirection: 'column',
             backgroundColor: 'black',
             justifyContent: 'center',
             alignItems: 'center'
-        },
 
-        streetCred: {
-
-            color: '#93ea1f'
-            
-        },
-
-
-        instagramText: {
-            marginLeft: 5,
-            fontWeight: 'bold',
-            color: '#93ea1f'
-        },
-
+        }
     }
 
     return(

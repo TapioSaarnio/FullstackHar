@@ -12,51 +12,50 @@ const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
             <Modal.Content>
                 {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
                 <Formik 
-        initialValues={{username:'', password:''}}
-        onSubmit={onSubmit}
-        validate={values => {
-            const requiredError = 'Täytä kenttä!';
-            const errors = {};
-            if(!values.username) {
-                errors.username = requiredError;
-            }
-            if(!values.password) {
-                errors.password = requiredError;
-            }
-            return errors;
-        }}
-        >
-            {( {isValid, dirty} ) => {
-                return (
-                    <div id='formDiv'>
-                    <Form className='form-ui'>
-                    <div id='username'>
-                    <Field
-                    label='Käyttäjänimi'
-                    placeholder='Käyttäjänimi'
-                    name='username'
-                    showText={true}
-                    component={TextField}
-                    />
-                    </div>
-                    <div id='password'>
-                    <Field
-                    label='Salasana'
-                    placeholder='Salasana'
-                    name='password'
-                    showText={false}
-                    component={TextField}
-                    />
-                    </div>
-                    <div id='signInButtonModalDiv'>
-                    <Button id='signInButtonModal' type='submit'>Inee</Button>
-                    </div>
-                </Form>
-                </div>
-                );
-            }}
-
-        </Formik>
+                initialValues={{username:'', password:'', admin: false}}
+                onSubmit={onSubmit}
+                validate={values => {
+                const requiredError = 'Täytä kenttä!';
+                const errors = {};
+                if(!values.username) {
+                    errors.username = requiredError;
+                }
+                if(!values.password) {
+                    errors.password = requiredError;
+                }
+                return errors;
+                }}
+                >
+                {() => {
+                    return (
+                        <div id='formDiv'>
+                            <Form className='form-ui'>
+                                <div id='username'>
+                                    <Field
+                                    label='Käyttäjänimi'
+                                    placeholder='Käyttäjänimi'
+                                    name='username'
+                                    showText={true}
+                                    component={TextField}
+                                    />
+                                </div>
+                                <div id='password'>
+                                    <Field
+                                    label='Salasana'
+                                    placeholder='Salasana'
+                                    name='password'
+                                    showText={false}
+                                    component={TextField}
+                                    />
+                                </div>
+                                <div id='signInButtonModalDiv'>
+                                    <Button id='signInButtonModal' type='submit'>Inee</Button>
+                                </div>
+                            </Form>
+                        </div>
+                    );
+                }}
+               </Formik>
             </Modal.Content>
         </Modal>
     )

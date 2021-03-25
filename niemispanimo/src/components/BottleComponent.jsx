@@ -5,28 +5,21 @@ export const BottleComponent = () => {
 
     const [rating, setRating] = useState(null)
     return(
-    <div id='leaveReviewDiv'>
-                    <div id='beerRating'>
-                        {[...Array(5)].map((bottle, i) => {
+            <div id='leaveReviewDiv'>
+                <div id='beerRating'>
+                    {[...Array(5)].map((bottle, i) => {
 
-                            const ratingValue = i + 1;
+                        const ratingValue = i + 1;
 
-                            return(
-
-                                        <label>
-                                        <input type='radio' name='rating' value={ratingValue} onClick={() =>setRating(ratingValue)}/>
+                        return(
+                                <label>
+                                    <input type='radio' name='rating' value={ratingValue} onClick={() =>setRating(ratingValue)}/>
                                         <FaBeer size={50} color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}/>
-                                        </label>
-
-                                        
-                                )
-
-                        })}
-                    
-                    </div>
-                    
-                    </div>
-
+                                </label>
+                              )
+                    })}
+                </div> 
+            </div>
     )
 }
 

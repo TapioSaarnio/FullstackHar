@@ -6,11 +6,11 @@ import TopContainer from './TopContainer'
 const FrontPage = () => {
 
     return(
-        <div id="App">
-        <TopContainer/>
-        <MiddleContainer/>
-        <BottomContainer/>
-        </div>
+         <div id="App">
+            <TopContainer/>
+            <MiddleContainer/>
+            <BottomContainer/>
+         </div>
     )
 }
 

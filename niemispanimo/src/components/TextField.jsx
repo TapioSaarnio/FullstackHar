@@ -1,6 +1,6 @@
 import React from 'react'
 import {Field, ErrorMessage } from 'formik'
-import { Dropdown, DropdownProps, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 
 export const TextField = ({field, label, placeholder, showText}) => {
     return(

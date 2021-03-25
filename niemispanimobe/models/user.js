@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
 const userSchema = mongoose.Schema({
+
     username: {
 
         type: String,
@@ -10,12 +11,17 @@ const userSchema = mongoose.Schema({
         maxLength: 20
         
     },
+
+    admin: Boolean,
     passwordHash: String,
 
     reviews: [
+
         {
+            
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Review'
+
         }
     ],
 })
@@ -30,6 +36,7 @@ userSchema.set('toJSON', {
         delete returnedObject.__v
         delete returnedObject.passwordHash
     }
+
 })
 
 const User = mongoose.model('User', userSchema)

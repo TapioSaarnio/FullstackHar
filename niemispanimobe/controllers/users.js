@@ -2,7 +2,6 @@ const usersRouter = require('express').Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
-
 usersRouter.get('/', (request, response) => {
 
     User.find({}).then(u => {
@@ -12,31 +11,30 @@ usersRouter.get('/', (request, response) => {
 
 usersRouter.get('/:id', (request, response, next) => {
 
+  console.log('userpost')
     User.findById(request.params.id).then(u => {
         if(u) {
+          console.log('u')
+          console.log(u)
         response.json(u => u.toJSON())
         }
         response.status(404).end()
-    }).catch(error => next(errorr))
+    }).catch(error => next(error))
 })
 
 usersRouter.post('/', async (request, response, next) => {
 
-    console.log('uiserspost')
-
     try{
 
-    
-        const body = request.body
-    
-        console.log('body')
-        console.log(body)
-        
+        const body = request.body        
         const saltRounds = 10
         const passwordHash = await bcrypt.hash(body.password, saltRounds)
+
+        console.log(body)
     
         const user = new User({
           username: body.username,
+          admin: body.admin,
           passwordHash
         })
     
@@ -47,8 +45,6 @@ usersRouter.post('/', async (request, response, next) => {
       } catch (error) {
         next(error)
       }
-
-    
 })
 
 module.exports = usersRouter
