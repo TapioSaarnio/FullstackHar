@@ -1,13 +1,17 @@
 import React from 'react'
 import {Modal, Header, Segment } from 'semantic-ui-react';
 import {Button} from 'react-bootstrap'
-import {Formik, Form, Field, ErrorMessage } from 'formik'
+import {Formik, Form, Field} from 'formik'
 import {TextField} from './TextField'
 
-const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
+
+/*
+ Renders the sign up modal
+*/
+const SignUpModal = ({onSubmit, signInModalOpen: signUpModalOpen, onClose, error}) => {
 
     return(
-        <Modal open={signInModalOpen} onClose={onClose} centered={true} closeIcon>
+        <Modal open={signUpModalOpen} onClose={onClose} centered={true} closeIcon>
             <Header textAlign='center'>Luo Tunnukset</Header>
             <Modal.Content>
                 {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
@@ -48,8 +52,8 @@ const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
                                     component={TextField}
                                     />
                                 </div>
-                                <div id='signInButtonModalDiv'>
-                                    <Button id='signInButtonModal' type='submit'>Inee</Button>
+                                <div id='signUpButtonModalDiv'>
+                                    <Button id='signUpButtonModal' type='submit'>Inee</Button>
                                 </div>
                             </Form>
                         </div>
@@ -61,4 +65,4 @@ const SignInModal = ({onSubmit, signInModalOpen, onClose, error}) => {
     )
 }
 
-export default SignInModal
+export default SignUpModal

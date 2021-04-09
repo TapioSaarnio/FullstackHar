@@ -1,5 +1,8 @@
 import { ErrorMessage, Field} from 'formik'
 
+/*
+ Formik component on which the description of a review is written on
+*/
 export const TextArea = ({field, label}) => {
 
     return(

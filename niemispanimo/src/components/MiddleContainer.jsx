@@ -1,11 +1,12 @@
 import React from 'react'
-import { Image } from 'react-bootstrap'
 import KulmanPojat from'../imgs/kulmanPojat.png'
 import Passion from '../imgs/passion.png'
 import LifetimeDeal from '../imgs/lifetimeDeal.png'
 import { Link } from 'react-router-dom'
 
-
+/*
+ Renders the middle part of the front page
+*/
 const MiddleContainer = () => {
 
     const styles = {

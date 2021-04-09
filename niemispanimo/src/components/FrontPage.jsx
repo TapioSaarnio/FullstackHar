@@ -3,6 +3,9 @@ import BottomContainer from './BottomContainer'
 import MiddleContainer from './MiddleContainer'
 import TopContainer from './TopContainer'
 
+/*
+ Renders the front page
+*/
 const FrontPage = () => {
 
     return(

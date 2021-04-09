@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import {Modal, Header, Segment } from 'semantic-ui-react'
 import {Button} from 'react-bootstrap'
-import {Formik, Form, Field, ErrorMessage } from 'formik'
+import {Formik, Form, Field} from 'formik'
 import {TextArea} from './TextArea'
 import { FaBeer } from 'react-icons/fa'
-//import BottleComponent from './BottleComponent'
 
+/*
+ Renders the modal component where a user can submit a review for a beer
+*/
 const LeaveReviewModal = ({onSubmit, leaveReviewModalOpen, onClose, error, product, user}) => {
 
     const [rating, setRating] = useState(null)
@@ -40,7 +42,7 @@ const LeaveReviewModal = ({onSubmit, leaveReviewModalOpen, onClose, error, produ
                                         return(
                                             <label>
                                                 <Field type='radio' name='verdict' value={ratingValue} onClick={() =>setRating(ratingValue)}/>
-                                                <FaBeer size={50} color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}/>
+                                                <FaBeer size={45} color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}/>
                                             </label>                                        
                                         )
                                     })}

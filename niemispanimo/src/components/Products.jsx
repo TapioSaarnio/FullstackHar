@@ -5,14 +5,16 @@ import axios from 'axios'
 import niemisPanimoCrew from '../imgs/niemisPanimoCrew.png'
 import getAllProducts from '../services/products'
 import LoginModal from './LoginModal'
-import SignInModal from './SignInModal'
+import SignUpModal from './SignUpModal'
 import LeaveReviewModal from './LeaveReviewModal'
 import ReadReviewsModal from './ReadReviewsModal'
 import AddBeerModal from './AddBeerModal'
+import { FaBeer } from 'react-icons/fa'
 const signUpUrl = 'http://localhost:3001/api/users'
 const loginUrl = 'http://localhost:3001/api/login'
 const leaveReviewUrl = 'http://localhost:3001/api/reviews'
 const addBeerUrl = 'http://localhost:3001/api/products'
+const getProductUrl = 'http://localhost:3001/api/products'
 
 
 
@@ -22,11 +24,20 @@ const Products =() => {
     const [user, setUser] = useState(null)
     const [product, setProduct] = useState(null)
     const [loginModalOpen, setLoginModalOpen] = useState(false)
-    const [signInModalOpen, setSignInModalOpen] = useState(false)
+    const [signUpModalOpen, setSignUpModalOpen] = useState(false)
     const [addBeerModalOpen, setAddBeerModalOpen] = useState(false)
     const [leaveReviewModalOpen, setLeaveReviewOpen] = useState(false)
     const [readReviewsModalOpen, setReadReviewsModalOpen] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+
+    const openLoginModal = () =>  setLoginModalOpen(true)
+    const openSignUpModal = () => setSignUpModalOpen(true)
+    const openAddBeerModal = () => setAddBeerModalOpen(true)
+    const closeAddBeerModal = () => setAddBeerModalOpen(false)
+    const closeReadReviewsModal = () => setReadReviewsModalOpen(false)
+    const closeLoginModal = () => setLoginModalOpen(false)
+    const closeLeaveReviewModal = () => setLeaveReviewOpen(false)
+    const closeSignUpModal = () => setSignUpModalOpen(false);
 
     useEffect(() => {
         getAllProducts().then(p => {
@@ -39,6 +50,9 @@ const Products =() => {
         }
     }, [])
 
+    /*
+    Opens a modal in which a user can submit a review for the product
+    */
     const openLeaveReviewModal = (product) => {
 
         if(user){   
@@ -55,15 +69,16 @@ const Products =() => {
     }
 
 
-    const openLoginModal = () =>  setLoginModalOpen(true)
-    const openSignInModal = () => setSignInModalOpen(true)
-    const openAddBeerModal = () => setAddBeerModalOpen(true)
-    const closeAddBeerModal = () => setAddBeerModalOpen(false)
-    const closeReadReviewsModal = () => setReadReviewsModalOpen(false)
-    const closeLoginModal = () => setLoginModalOpen(false)
-    const closeLeaveReviewModal = () => setLeaveReviewOpen(false)
-    const closeSignInModal = () => setSignInModalOpen(false);
-         
+    const getAllProducts = async() => {
+
+        const response = await axios.get(getProductUrl)
+        return response.data
+        
+    }
+
+    /*
+    Opens a modal where a user can read all the submitted reviews of a certain product 
+    */
     const openReadReviewsModal = (product) => {
 
         setProduct(product)
@@ -71,6 +86,10 @@ const Products =() => {
 
     }
 
+
+    /*
+    Logs in a user, sets an errormessage in the case of incorrect credentials
+    */
     const handleLogin = async (values) => {
 
         try{
@@ -93,26 +112,34 @@ const Products =() => {
         
     }
 
+
+    /*
+    clears the localstorage and logs out a user
+    */
     const handleLogOut = () => {
 
         window.localStorage.clear()
         setUser(null)
 
-        
-
     }
 
+    /*
+     Makes a post request of the review to the backend
+    */
     const handleLeaveReview = async (values) => {
 
         await axios.post(leaveReviewUrl, values)
-        closeLoginModal()
+        closeLeaveReviewModal()
+        getAllProducts().then(p => {
+            setProducts(p)
+        })
          
     }
 
-    const handleSignIn = async (values) => {
-
-        console.log('values')
-        console.log(values)
+    /*
+     Creates an account, sets an error message if username is already taken
+    */
+    const handleSignUp = async (values) => {
 
         try {
             const response = await axios.post(signUpUrl, values)
@@ -124,13 +151,15 @@ const Products =() => {
                 }, 5000)
                 return
             }
+
     }
 
+    /*
+     Adds a beer to the database, sets an error message if all the fields are not filled
+    */
     const handleAddBeer = async (values) => {
 
-        console.log('addbeervalues')
-        console.log(values)
-
+        
         let data = new FormData();
         data.append("file", values.file)
         data.append("name", values.name)
@@ -153,16 +182,22 @@ const Products =() => {
     }
 
 
-    const loginAndSignIn = (handleLogin, handleSignIn) => (
+    /*
+     Renders the login and sign up buttons, this will be rendered if no user is logged in.
+    */
+    const loginAndSignIn = (handleLogin, handleSignUp) => (
 
             <div id='login'>
                 <Button id='loginButton' onClick = {() => openLoginModal(handleLogin)}>Kirjaudu sisään</Button>
-                <Button id='signInButton' onClick = {() => openSignInModal(handleSignIn)}>Luo tunnukset</Button>
+                <Button id='signInButton' onClick = {() => openSignUpModal(handleSignUp)}>Luo tunnukset</Button>
             </div>
 
     )
 
 
+    /*
+      Renders which user is currently logged in and the logout button. The add beer button will be rendered if the user logged in has admin rights.
+    */
     const loggedInForm = () => {
 
         if(user.admin === true) {
@@ -187,6 +222,7 @@ const Products =() => {
 
     }
 
+    //Renders the bulk of the page
     if(products) {
         return(
         
@@ -197,14 +233,49 @@ const Products =() => {
                     </Link>
                 </div>
                 <LoginModal onSubmit={handleLogin} loginModalOpen={loginModalOpen} onClose={closeLoginModal} error={errorMessage}/>
-                <SignInModal onSubmit={handleSignIn} signInModalOpen={signInModalOpen} onClose={closeSignInModal} error={errorMessage}/>
+                <SignUpModal onSubmit={handleSignUp} signUpModalOpen={signUpModalOpen} onClose={closeSignUpModal} error={errorMessage}/>
                 <LeaveReviewModal onSubmit={handleLeaveReview} leaveReviewModalOpen={leaveReviewModalOpen} onClose={closeLeaveReviewModal} error={errorMessage} product={product} user={user}/>
                 <ReadReviewsModal readReviewsModalOpen={readReviewsModalOpen} onClose={closeReadReviewsModal} error={errorMessage} product={product} />
                 <AddBeerModal onSubmit={handleAddBeer} addBeerModalOpen={addBeerModalOpen} onClose={closeAddBeerModal} error={errorMessage} />
-                {user === null ? loginAndSignIn(handleLogin, handleSignIn) : loggedInForm()}
+                {user === null ? loginAndSignIn(handleLogin, handleSignUp) : loggedInForm()}
                 
-                {products.map(p =>
-                    <Card>
+                {products.map(p => {
+
+                    let avg = 0
+                    let i
+
+                    for (i = 0; i < p.reviews.length; i++) {
+                        avg = avg + p.reviews[i].verdict
+                    }
+
+                    avg = avg/i
+                    avg = Math.round(avg)
+
+                    if(avg) {
+
+                        return(
+
+                            <Card key={p.name}>
+                                <Card.Img  src={p.image} className='cardPicture'/>
+                                <Card.Body>
+                                    <div className='description'>
+                                        <Card.Text >{p.description}</Card.Text>
+                                    </div>
+                                    <div id='average'>
+                                        {[...Array(avg)].map(b => <FaBeer size={20} color = { "#ffc107"}/>)}
+                                    </div>
+                                    <div id='reviewButtons'>
+                                        <Button id='readReviewsButton' onClick={() => openReadReviewsModal(p)}>Lue arvosteluja</Button>
+                                        <Button id='leaveReviewButton' onClick={() => openLeaveReviewModal(p)}>Jätä arvostelu</Button>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        )
+                    }
+
+
+                    return(
+                    <Card key={p.name}>
                         <Card.Img  src={p.image} className='cardPicture'/>
                         <Card.Body>
                     <div className='description'>
@@ -216,16 +287,17 @@ const Products =() => {
                     </div>
                 </Card.Body>
                 </Card>
-            )}            
+                )})}            
             </div>
         )
     }
     else {
 
         return(
-            null
-        )
 
+            null
+
+        )
     }
 }
 

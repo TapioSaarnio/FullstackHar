@@ -1,8 +1,10 @@
 import React from 'react'
-import {Modal, Header, Segment} from 'semantic-ui-react'
+import {Modal, Header} from 'semantic-ui-react'
 import { FaBeer } from 'react-icons/fa'
-import { ErrorMessage } from 'formik'
 
+/*
+ Renders all the reviews that have been submittted to a certain beer 
+*/
 const ReadReviewsModal = ({readReviewsModalOpen, onClose, error, product}) => {
 
     if(product){
@@ -25,7 +27,7 @@ const ReadReviewsModal = ({readReviewsModalOpen, onClose, error, product}) => {
                                     </div>
                                 </div>
                             )
-                    })}
+                        })}
                     </div>
                 </Modal.Content>
             </Modal>

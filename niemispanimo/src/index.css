@@ -97,6 +97,12 @@ code {
 
 }
 
+#average {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .content {
 
   border-right: 50px solid black;
@@ -256,7 +262,7 @@ code {
 
 }
 
-#signInButtonModalDiv {
+#signUpButtonModalDiv {
 
   display: flex;
   flex-direction:row;
@@ -384,8 +390,10 @@ input[type="radio"] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
 }
+
  #ratingErrorMessage {
 
    display: flex;

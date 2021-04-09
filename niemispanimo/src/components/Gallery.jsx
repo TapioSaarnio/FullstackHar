@@ -91,7 +91,7 @@ const Gallery = () => {
                 <Carousel width="800">
                     {photos.map(pho=> <div><img alt=''src={pho.photo}/></div>)}
                 </Carousel>
-                <img src={panimoXliike}/>
+                <img src={panimoXliike} alt='Liike 22 X Niemispanimo'/>
             </div>
     )
 }

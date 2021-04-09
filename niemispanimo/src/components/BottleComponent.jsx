@@ -1,9 +1,13 @@
 import React, {useState} from 'react'
 import {FaBeer} from 'react-icons/fa'
 
+/*
+ Component for setting a rating for a beer
+*/
 export const BottleComponent = () => {
 
     const [rating, setRating] = useState(null)
+    
     return(
             <div id='leaveReviewDiv'>
                 <div id='beerRating'>
