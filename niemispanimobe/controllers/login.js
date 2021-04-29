@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 const config = require('../utils/config')
 
+/*
+Logs the user in to the website
+*/
 loginRouter.post('/', async (request, response) => {
 
     const user = await User.findOne({username: request.body.username})

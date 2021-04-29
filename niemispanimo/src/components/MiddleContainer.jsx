@@ -23,23 +23,23 @@ const MiddleContainer = () => {
 
     return (
             <div style={styles.middleContainer}>
-                <div class='frontPageChoices'>
+                <div className='frontPageChoices'>
                     <Link to='./Galleria'>
-                        <img class='frontPageImgs' alt='Kulman Pojat' src={KulmanPojat}/>
+                        <img className='frontPageImgs' alt='Kulman Pojat' src={KulmanPojat}/>
                     </Link>
-                    <p class='frontPageChoicesText'>Kuvagalleria</p>
+                    <p className='frontPageChoicesText'>Kuvagalleria</p>
                 </div>
-                <div class='frontPageChoices'>
+                <div className='frontPageChoices'>
                     <Link to='./Tuotteet'>
-                        <img class='frontPageImgs' alt='Passion' src={Passion}/>
+                        <img className='frontPageImgs' alt='Passion' src={Passion}/>
                     </Link>
-                    <p class='frontPageChoicesText'>Tuotteet</p>
+                    <p className='frontPageChoicesText'>Tuotteet</p>
                 </div>
-                <div class='frontPageChoices'>
+                <div className='frontPageChoices'>
                     <a href='https://www.youtube.com/watch?v=YbpaPkZojxA&t=1142s&ab_channel=Kulmanpojat'>
-                        <img class='frontPageImgs' alt='Lifetime Deal' src={LifetimeDeal}/>
+                        <img className='frontPageImgs' alt='Lifetime Deal' src={LifetimeDeal}/>
                     </a>
-                    <p class='frontPageChoicesText'>Videot</p>
+                    <p className='frontPageChoicesText'>Videot</p>
                 </div>
             </div>
     ) 

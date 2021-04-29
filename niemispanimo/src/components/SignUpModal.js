@@ -8,7 +8,7 @@ import {TextField} from './TextField'
 /*
  Renders the sign up modal
 */
-const SignUpModal = ({onSubmit, signInModalOpen: signUpModalOpen, onClose, error}) => {
+const SignUpModal = ({onSubmit, signUpModalOpen, onClose, error}) => {
 
     return(
         <Modal open={signUpModalOpen} onClose={onClose} centered={true} closeIcon>
@@ -53,7 +53,7 @@ const SignUpModal = ({onSubmit, signInModalOpen: signUpModalOpen, onClose, error
                                     />
                                 </div>
                                 <div id='signUpButtonModalDiv'>
-                                    <Button id='signUpButtonModal' type='submit'>Inee</Button>
+                                    <Button id='signUpButtonModal' type='submit'>Luo tunnukset</Button>
                                 </div>
                             </Form>
                         </div>

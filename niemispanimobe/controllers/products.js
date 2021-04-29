@@ -2,6 +2,9 @@ const productsRouter = require('express').Router()
 const Product = require('../models/product')
 const {uploadImage} = require('../helpers/helpers')
 
+/*
+Returns all products
+*/
 productsRouter.get('/', (request, response) => {
     Product.find({}).populate({path: 'reviews', populate:{path: 'user', model: 'User'}}).then(ps => {
       
@@ -10,6 +13,9 @@ productsRouter.get('/', (request, response) => {
     })
 })
 
+/*
+Returns a product with a certain ID
+*/
 productsRouter.get('/:id', (request, response, next) => {
 
     Product.findById(request.params.id)
@@ -27,9 +33,11 @@ productsRouter.get('/:id', (request, response, next) => {
           .catch(error => next(error))
 })
 
+/*
+Saves a product to the database
+*/
 productsRouter.post('/', async (req, res, next) => {
 
-    console.log('postproduct')
     try {
 
         console.log(req)
@@ -51,7 +59,7 @@ productsRouter.post('/', async (req, res, next) => {
             .status(200)
             .json({
             message: "Upload was successful",
-            data: savedProduct
+            data: savedProduct.toJSON()
         })
   
       } catch (error) {

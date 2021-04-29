@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap');
+
 @import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
@@ -52,9 +55,10 @@ code {
 
 }
 
-#streetCred {
+#niemisInfo {
 
   color: #93ea1f;
+  font-family:  'Bungee';
 
 }
 
@@ -74,6 +78,9 @@ code {
   justify-content: center;
   margin: 7px;
   text-align: center;
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: bold;
 
 }
 
@@ -81,12 +88,16 @@ code {
 
   padding: 20px;
   margin: 10px;
-  background-color: #D3D3D3 ;
+  background-color: #e0e0e0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;  
 
+}
+
+.card-body {
+  margin: 10px
 }
 
 #reviewButtons {
@@ -97,8 +108,12 @@ code {
 
 }
 
+#checkbox {
+  margin: 10px;
+}
+
 #average {
-  display: flex;
+  display:flex;
   flex-direction: row;
   justify-content: center;
 }
@@ -145,11 +160,18 @@ code {
 
 }
 
+
 .frontPageChoicesText {
 
   font-family: 'Bungee';
   color:#93ea1f;
   font-size: x-large;
+
+}
+
+#ig:hover {
+
+  opacity: 0.4
 
 }
 
@@ -241,11 +263,18 @@ code {
   
 }
 
+#streetCred {
+
+  color: #93ea1f;
+
+} 
+
 #loginButtonModalDiv {
 
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   margin: 10px;
   
 }
@@ -267,10 +296,19 @@ code {
   display: flex;
   flex-direction:row;
   justify-content: center;
-
+  margin: 10px;
 }
 
 #formDiv {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#formDivK {
 
   display: flex;
   flex-direction: row;
@@ -452,7 +490,8 @@ input[type="radio"] {
 #review {
 
   margin-bottom: 10px;
-  background-color: #D3D3D3;
+  background-color: #e0e0e0;
+  font-family: 'Merriweather';
 
 }
 
@@ -583,7 +622,7 @@ input[type="radio"] {
     padding-left: 100px;
     padding-right: 100px;
     margin: 10px;
-    background-color: #D3D3D3 ;
+    background-color: #e0e0e0 ;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -603,6 +642,20 @@ input[type="radio"] {
     max-width: 150px;
     word-wrap: break-word;
 
+  }
+
+  .description {
+
+    display: flex;
+    max-width: 540px;
+    justify-content: center;
+    margin: 7px;
+    text-align: center;
+    font-family: 'Merriweather';
+    font-style: italic;
+    font-weight: bold;
+    font-size: small;
+  
   }
 
 

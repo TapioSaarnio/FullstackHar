@@ -17,7 +17,7 @@ const ReadReviewsModal = ({readReviewsModalOpen, onClose, error, product}) => {
                             return(
                                 <div id='review'>
                                     <div id='reviewsTop'>
-                                        <p>{r.user.username}</p>
+                                        <strong>{r.user.username}</strong>
                                         <div id='reviewVerdict'>
                                             {[...Array(r.verdict)].map(b => <FaBeer size={20} />)}
                                     </div>

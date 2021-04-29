@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
 import axios from 'axios'
 import niemisPanimoCrew from '../imgs/niemisPanimoCrew.png'
-import getAllProducts from '../services/products'
 import LoginModal from './LoginModal'
 import SignUpModal from './SignUpModal'
 import LeaveReviewModal from './LeaveReviewModal'
@@ -28,6 +27,7 @@ const Products =() => {
     const [addBeerModalOpen, setAddBeerModalOpen] = useState(false)
     const [leaveReviewModalOpen, setLeaveReviewOpen] = useState(false)
     const [readReviewsModalOpen, setReadReviewsModalOpen] = useState(false)
+    const [confirmationMessage, setConfirmationMessage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
 
     const openLoginModal = () =>  setLoginModalOpen(true)
@@ -62,13 +62,16 @@ const Products =() => {
 
         } else {
 
-            alert('kirjaudu sisään jättääksesi arvostelun')
+            alert('Kirjaudu sisään jättääksesi arvostelun')
 
         }
 
     }
 
 
+    /*
+     Gets all the products from the API
+    */
     const getAllProducts = async() => {
 
         const response = await axios.get(getProductUrl)
@@ -88,18 +91,23 @@ const Products =() => {
 
 
     /*
-    Logs in a user, sets an errormessage in the case of incorrect credentials
+    Logs in a user, sets an error message in the case of incorrect credentials
     */
     const handleLogin = async (values) => {
+
+        console.log('values')
+        console.log(values)
 
         try{
 
             const response = await axios.post(loginUrl, values)
             const user = response.data
             setUser(user)
-            window.localStorage.setItem(
+            if(values.remember === true){
+                window.localStorage.setItem(
                 'loggedInUser', JSON.stringify(user)
             )
+            }
         } catch(e) {
             setErrorMessage(`Käyttäjätunnus tai salasana väärin`)
             setTimeout(() => {
@@ -140,17 +148,23 @@ const Products =() => {
      Creates an account, sets an error message if username is already taken
     */
     const handleSignUp = async (values) => {
-
+        
         try {
-            const response = await axios.post(signUpUrl, values)
-            return response.data
+            await axios.post(signUpUrl, values)
             } catch(e) {
                 setErrorMessage(`Käyttäjätunnus "${values.username}" on jo olemassa`)
                 setTimeout(() => {
                     setErrorMessage(null)
                 }, 5000)
                 return
+                
             }
+
+            closeSignUpModal()
+            setConfirmationMessage('Tunnukset luotu!')
+            setTimeout(() => {
+                setConfirmationMessage('')
+            }, 5000)
 
     }
 
@@ -167,8 +181,9 @@ const Products =() => {
 
 
         try {
-            const response = await axios.post(addBeerUrl, data)
-            return response.data
+
+            await axios.post(addBeerUrl, data)
+            
         } catch(e) {
             console.log(e)
             setErrorMessage('jotain meni vikaan')
@@ -178,6 +193,11 @@ const Products =() => {
             return
         }
 
+        closeAddBeerModal()
+        setConfirmationMessage('Bisse lisätty!')
+        setTimeout(() => {
+            setConfirmationMessage('')
+        }, 5000)
 
     }
 
@@ -222,10 +242,8 @@ const Products =() => {
 
     }
 
-    //Renders the bulk of the page
     if(products) {
         return(
-        
             <div className='content'>
                 <div>
                     <Link to='/'>
@@ -238,7 +256,7 @@ const Products =() => {
                 <ReadReviewsModal readReviewsModalOpen={readReviewsModalOpen} onClose={closeReadReviewsModal} error={errorMessage} product={product} />
                 <AddBeerModal onSubmit={handleAddBeer} addBeerModalOpen={addBeerModalOpen} onClose={closeAddBeerModal} error={errorMessage} />
                 {user === null ? loginAndSignIn(handleLogin, handleSignUp) : loggedInForm()}
-                
+                <p>{confirmationMessage}</p>
                 {products.map(p => {
 
                     let avg = 0
@@ -262,7 +280,7 @@ const Products =() => {
                                         <Card.Text >{p.description}</Card.Text>
                                     </div>
                                     <div id='average'>
-                                        {[...Array(avg)].map(b => <FaBeer size={20} color = { "#ffc107"}/>)}
+                                        {[...Array(avg)].map(b => <FaBeer key={p.name} size={20} color = { "#ffc107"}/>)}
                                     </div>
                                     <div id='reviewButtons'>
                                         <Button id='readReviewsButton' onClick={() => openReadReviewsModal(p)}>Lue arvosteluja</Button>
@@ -273,13 +291,12 @@ const Products =() => {
                         )
                     }
 
-
                     return(
                     <Card key={p.name}>
                         <Card.Img  src={p.image} className='cardPicture'/>
                         <Card.Body>
                     <div className='description'>
-                        <Card.Text >{p.description}</Card.Text>
+                        <Card.Text id='beerDescription'>{p.description}</Card.Text>
                     </div>
                     <div id='reviewButtons'>
                         <Button id='readReviewsButton' onClick={() => openReadReviewsModal(p)}>Lue arvosteluja</Button>

@@ -2,6 +2,9 @@ const usersRouter = require('express').Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 
+/*
+Returns all users
+*/
 usersRouter.get('/', (request, response) => {
 
     User.find({}).then(u => {
@@ -9,19 +12,23 @@ usersRouter.get('/', (request, response) => {
     })
 })
 
+/*
+Returns a user with a certain ID
+*/
 usersRouter.get('/:id', (request, response, next) => {
 
-  console.log('userpost')
+
     User.findById(request.params.id).then(u => {
         if(u) {
-          console.log('u')
-          console.log(u)
         response.json(u => u.toJSON())
         }
         response.status(404).end()
     }).catch(error => next(error))
 })
 
+/*
+Saves a user to the database
+*/
 usersRouter.post('/', async (request, response, next) => {
 
     try{
@@ -40,7 +47,7 @@ usersRouter.post('/', async (request, response, next) => {
     
         const savedUser = await user.save()
     
-        response.json(savedUser)
+        response.json(savedUser.toJSON())
     
       } catch (error) {
         next(error)

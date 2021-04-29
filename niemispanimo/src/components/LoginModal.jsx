@@ -1,21 +1,23 @@
 import React from 'react'
 import { Modal, Header, Segment } from 'semantic-ui-react';
 import {Button} from 'react-bootstrap'
-import {Formik, Form, Field, ErrorMessage } from 'formik'
+import {Formik, Form, Field} from 'formik'
 import {TextField} from './TextField'
 
 
-
+/*
+ Renders the log in modal
+*/
 const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
 
 
     return(
         <Modal open={loginModalOpen} onClose={onClose} centered={true} closeIcon>
-            <Header textAlign='center'>Kirjaudu Sisään</Header>
+            <Header textAlign='center'>Kirjaudu sisään</Header>
             <Modal.Content>
                 {error && <Segment inverted color="red">{`Error: ${error}`}</Segment>}
                 <Formik 
-                initialValues={{username:'', password:''}}
+                initialValues={{username:'', password:'', remember: false}}
                 onSubmit={onSubmit}
                 validate={values => {
                     const requiredError = 'Täytä kenttä!';
@@ -51,8 +53,16 @@ const LoginModal = ({onSubmit, loginModalOpen, onClose, error}) => {
                         component={TextField}
                         />
                         </div>
-                        <div id='loginButtonModalDiv'>
+                        <div>
+                        <Field id = 'checkbox' type='checkbox' name='remember'/>
+                        <span>Pidä minut kirjautuneena</span>
+                        </div>
+                        <div id='loginButtonModalDiv'>    
                         <Button id='loginButtonModal' type='submit'>Inee</Button>
+                        
+                        
+                        
+                        
                         </div>
                     </Form>
                     </div>

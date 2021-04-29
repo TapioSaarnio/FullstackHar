@@ -10,29 +10,33 @@ const reviewsRouter = require('./controllers/reviews')
 const multer = require('multer')
 const mongoose = require('mongoose')
 
-
 const multerMid = multer({
     storage: multer.memoryStorage(),
+
     limits: {
-      // no larger than 5mb.
+      
       fileSize: 5 * 1024 * 1024,
+
     },
 })
 
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
-  .then(() => {
+    .then(() => {
+
     console.log('connected to MongoDB')
-  })
-  .catch((error) => {
+
+    })
+    .catch((error) => {
+
     console.log('error connecting to MongoDB:', error.message)
+
   })
 
   app.use(cors())
   app.use(express.static('build'))
   app.use(express.json())
   app.disable('x-powered-by')
-app.use(multerMid.single('file'))
-
+  app.use(multerMid.single('file'))
   app.use('/api/users', usersRouter)
   app.use('/api/login', loginRouter)
   app.use('/api/products', productsRouter)

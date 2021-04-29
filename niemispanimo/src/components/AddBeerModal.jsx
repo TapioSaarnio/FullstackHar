@@ -20,10 +20,16 @@ const AddBeerModal = ({onSubmit, addBeerModalOpen, onClose, error}) => {
                 initialValues={{name:'', description:'', file: null}}
                 onSubmit={onSubmit}
                 validate={values => {
-                    const requiredError = 'Täytä kentät!'
+                    const requiredError = 'Täytä kenttä'
                     const errors = {}
-                    if(!values.name || !values.description || !values.file) {
+                    if(!values.name) {
                         errors.name = requiredError
+                    }
+                    if(!values.description) {
+                        errors.description = requiredError
+                    }
+                    if(!values.file) {
+                        errors.file = requiredError
                     }
                     return errors
                 }}
